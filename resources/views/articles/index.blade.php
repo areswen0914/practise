@@ -14,7 +14,11 @@
             <td class="border border-black">
                 <a href="{{ route('article.show',$article->id ) }}">查看</a>
                 <a href="{{ route('article.edit',$article->id ) }}">編輯</a>
-                <a href="{{ route('article.destroy',$article->id ) }}">刪除</a>
+                <form method="POST" action="{{ route('article.destroy',$article->id ) }}">
+                    @csrf
+                    @method('delete')
+                    <button type="submit">刪除</button>
+                </form>
             </td>
         </tr>
         @endforeach
