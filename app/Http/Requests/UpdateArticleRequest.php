@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\CustomRule;
 
 class UpdateArticleRequest extends FormRequest
 {
@@ -24,7 +25,7 @@ class UpdateArticleRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required'
+            'title' => ['required', new CustomRule]
         ];
     }
 }
